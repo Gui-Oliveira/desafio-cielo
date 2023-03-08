@@ -1,0 +1,93 @@
+<div class="home">
+  <div class="row">
+    <div class="col mb-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-uppercase mb-1">Quantidade</div>
+          <div class="h5 mb-0">{{values.totalQuantity}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col mb-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-uppercase mb-1">Montante</div>
+          <div class="h5 mb-0">{{ values.totalAmount | currency: 'BRL'}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col mb-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-uppercase mb-1">Valor líquido</div>
+          <div class="h5 mb-0">{{ values.totalNetAmount | currency: 'BRL'}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col mb-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-uppercase mb-1">Valor médio</div>
+          <div class="h5 mb-0">{{ values.totalAverageAmount | currency: 'BRL' }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box-table card mb-4 low-shadow">
+    <h6 class="title-table">Tabela</h6>
+    <mat-form-field class="filter">
+      <mat-label>Filtro</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        #input
+      />
+    </mat-form-field>
+
+    <table mat-table matSort [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="pagamento">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo de Pagamento</th>
+        <td mat-cell *matCellDef="let element">{{ element.pagamento }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="bandeira">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Bandeira</th>
+        <td mat-cell *matCellDef="let element">{{ element.bandeira }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+        <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="canal">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Canal</th>
+        <td mat-cell *matCellDef="let element">{{ element.canal }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr 
+        mat-row 
+        *matRowDef="let row; columns: displayedColumns"
+        (click)="listInModal(row)"
+        [class.demo-row-is-clicked]="clickedRows.has(row)">
+      </tr>
+    </table>
+
+    <mat-paginator
+      [length]="ELEMENT_DATA.length"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25]"
+      showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>

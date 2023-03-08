@@ -1,0 +1,33 @@
+<mat-list>
+    <mat-list-item>
+      ID: {{ rowTable.id }}
+    </mat-list-item>
+    <mat-list-item>
+      Codigo Autorização: {{ rowTable.authorizationCode }}
+    </mat-list-item>
+    <mat-list-item>
+      Valor bruto: {{ rowTable.grossAmount | currency: 'BRL' }}
+    </mat-list-item>
+    <mat-list-item>
+      Valor líquido: {{ rowTable.netAmount | currency: 'BRL' }}
+    </mat-list-item>
+    <mat-list-item>
+      Terminal: {{ rowTable.terminal }}
+    </mat-list-item>
+    <mat-list-item>
+      Taxa de administração: {{ rowTable.administrationFee | currency: 'BRL' }}
+    </mat-list-item>
+    <mat-list-item>
+      Código do canal: {{ rowTable.channelCode }}
+    </mat-list-item>
+    <mat-list-item>
+      Id do comerciante: {{ rowTable.merchantId }}
+    </mat-list-item>
+</mat-list>
+  
+<div class="modal-footer">
+   <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="activeModal.close('Close click')">Fechar</button>
+</div>

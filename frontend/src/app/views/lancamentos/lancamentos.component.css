@@ -1,0 +1,42 @@
+.home{
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+.box-table {
+  padding: 20px;
+ 
+}
+
+.filter {
+  width: 100%;
+}
+
+.title-table{
+  font-size: 18px;
+  font-weight: 500;
+  margin: 10px 0 16px;
+  color: var(--cinza-cielo);
+
+}
+.low-shadow{
+  box-shadow: var(--low-shadow);
+}
+ 
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}
+ 
